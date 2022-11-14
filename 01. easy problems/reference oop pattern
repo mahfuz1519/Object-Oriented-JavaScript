@@ -1,0 +1,124 @@
+// Factory Function
+function RectangleFact(length, width) {
+  return {
+    length,
+    width,
+
+    getWidth() {
+      return this.width;
+    },
+
+    getLength() {
+      return this.length;
+    },
+
+    getArea() {
+      return this.length * this.width;
+    },
+  }
+}
+
+let rect0 = RectangleFact(5, 4);
+console.log(rect0.getWidth()); // 4
+console.log(rect0.getLength()); // 5
+console.log(rect0.getArea()); // 20
+
+// Constructor Functions & Prototypes
+function RectangleFunc(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+RectangleFunc.prototype.getWidth = function() {
+  return this.width;
+}
+
+RectangleFunc.prototype.getLength = function() {
+  return this.length;
+}
+
+RectangleFunc.prototype.getArea = function() {
+  return this.width * this.length;
+}
+
+let rect1 = new RectangleFunc(5, 4);
+console.log(rect1.getWidth()); // 4
+console.log(rect1.getLength()); // 5
+console.log(rect1.getArea()); // 20
+
+// class Declaration
+class RectangleDecl {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  getWidth() {
+    return this.width;
+  }
+
+  getLength() {
+    return this.length;
+  }
+
+  getArea() {
+    return this.width * this.length;
+  }
+}
+
+let rect2 = new RectangleDecl(5, 4);
+console.log(rect2.getWidth()); // 4
+console.log(rect2.getLength()); // 5
+console.log(rect2.getArea()); // 20
+
+// class Expression
+let RectangleExp = class {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  getWidth() {
+    return this.width;
+  }
+
+  getLength() {
+    return this.length;
+  }
+
+  getArea() {
+    return this.width * this.length;
+  }
+}
+
+let rect3 = new RectangleExp(5, 4);
+console.log(rect3.getWidth()); // 4
+console.log(rect3.getLength()); // 5
+console.log(rect3.getArea()); // 20
+
+// Object's Linking to Other Objects (uses init and an explicit return in the Constructor
+let rectanglePrototype = {
+  init(length, width) {
+    this.width = width;
+    this.length = length;
+    return this;
+  },
+
+  getWidth() {
+    return this.width;
+  },
+
+  getLength() {
+    return this.length;
+  },
+
+  getArea() {
+    return this.width * this.length;
+  },
+};
+
+let olooRect = Object.create(rectanglePrototype).init(5, 4);
+
+console.log(olooRect.getWidth()); // 4
+console.log(olooRect.getLength()); // 5
+console.log(olooRect.getArea()); // 20
