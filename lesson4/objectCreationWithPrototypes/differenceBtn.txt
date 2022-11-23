@@ -1,0 +1,19 @@
+difference between OLOO vs factory functions
+
+Objects created with the OLOO have a prototype 
+object that contains the methods associated with 
+the created objects. Since all pets created from 
+the prototype share a single prototype object, 
+they all share the same methods. With the factory 
+function, each object has a copy of all the methods. 
+Thus, objects created by OLOO are more efficient in terms 
+of memory use.
+
+Objects created with the factory function 
+can have private state. Any state stored in 
+the body of the factory function instead of in 
+the returned object is private to the returned object. 
+They can't be accessed or modified unless one of the 
+object methods exposes the state. With OLOO, there is 
+no way to define private state. All object state can 
+be accessed and modified by outside code.
